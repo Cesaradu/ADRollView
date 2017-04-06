@@ -190,7 +190,7 @@
     [self.currentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.currentBtn.mas_centerY);
         make.left.equalTo(self.currentBtn.mas_right).offset([self Suit:5]);
-        make.right.equalTo(self.currentTimeLabel.mas_left).offset([self Suit:-5]);
+        make.width.mas_equalTo([self Suit:160]);
     }];
 
 }
@@ -233,7 +233,7 @@
     [self.hidenLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.hidenBtn.mas_centerY);
         make.left.equalTo(self.hidenBtn.mas_right).offset([self Suit:5]);
-        make.right.equalTo(self.hidenTimeLabel.mas_left).offset([self Suit:-5]);
+        make.width.mas_equalTo([self Suit:160]);
     }];
     
 }

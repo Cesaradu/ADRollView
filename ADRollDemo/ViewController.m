@@ -99,7 +99,7 @@
 - (NSMutableArray *)getData {
     
     NSArray *adTypeArray = @[@"紧急通知", @"公告", @"通告"];
-    NSArray *titleArray = @[@"程序员才是真正的段子手", @"iOS动画-从不会到熟练应用", @"移动导航设计，看这一篇就够了"];
+    NSArray *titleArray = @[@"程序员才是真正的段子手", @"iOS动画", @"移动导航设计，看这一篇就够了"];
     NSArray *timeArray = @[@"2016-12-25", @"2017-02-14", @"2017-05-13"];
     NSArray *urlArray = @[@"http://www.cocoachina.com/programmer/20170315/18892.html", @"http://www.cocoachina.com/ios/20170315/18890.html", @"http://www.cocoachina.com/design/20170315/18884.html"];
     
