@@ -6,8 +6,7 @@
 //
 
 #import "ADRollView.h"
-#import "Masonry.h"
-#import "UIColor+ColorHelper.h"
+
 
 @interface ADRollView ()
 {
@@ -159,22 +158,26 @@
     
     //此处是类型按钮(不需要点击)
     self.currentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.currentBtn.frame = CGRectMake(5, (self.currentView.frame.size.height-35)/2, 30, 35);
     [self.currentBtn setTitle:model.noticeType forState:UIControlStateNormal];
     [self.currentBtn setTitleColor:[UIColor colorWithHexString:@"ff9500" alpha:1.0] forState:UIControlStateNormal];
-    self.currentBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    self.currentBtn.titleLabel.font = [UIFont systemFontOfSize:[self Suit:12]];
     [self.currentView addSubview:self.currentBtn];
+    [self.currentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.currentView.mas_left).offset([self Suit:5]);
+        make.centerY.equalTo(self.currentView.mas_centerY);
+        make.height.mas_equalTo([self Suit:35]);
+    }];
     
     //时间
     self.currentTimeLabel = [[UILabel alloc] init];
     self.currentTimeLabel.textColor = [UIColor colorWithHexString:@"666666" alpha:1.0];
-    self.currentTimeLabel.font = [UIFont systemFontOfSize:12];
+    self.currentTimeLabel.font = [UIFont systemFontOfSize:[self Suit:12]];
     self.currentTimeLabel.textAlignment = NSTextAlignmentRight;
     [self.currentView addSubview:self.currentTimeLabel];
     [self.currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.currentBtn.mas_centerY);
-        make.right.equalTo(self.currentView.mas_right).offset(-10);
-        make.width.mas_equalTo(@70);
+        make.right.equalTo(self.currentView.mas_right).offset([self Suit:-10]);
+        make.width.mas_equalTo([self Suit:70]);
     }];
     
     //内容标题
@@ -182,12 +185,12 @@
     self.currentLabel.text = model.noticeTitle;
     self.currentLabel.textAlignment = NSTextAlignmentLeft;
     self.currentLabel.textColor = [UIColor colorWithHexString:@"666666" alpha:1.0];
-    self.currentLabel.font = [UIFont systemFontOfSize:12];
+    self.currentLabel.font = [UIFont systemFontOfSize:[self Suit:12]];
     [self.currentView addSubview:self.currentLabel];
     [self.currentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.currentBtn.mas_centerY);
-        make.left.equalTo(self.currentBtn.mas_right).offset(5);
-        make.right.equalTo(self.currentTimeLabel.mas_left).offset(-15);
+        make.left.equalTo(self.currentBtn.mas_right).offset([self Suit:5]);
+        make.right.equalTo(self.currentTimeLabel.mas_left).offset([self Suit:-5]);
     }];
 
 }
@@ -199,21 +202,25 @@
     
     //此处是类型按钮(不需要点击)
     self.hidenBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.hidenBtn.frame = CGRectMake(5, (self.currentView.frame.size.height-35)/2, 30, 35);
     [self.hidenBtn setTitle:@"" forState:UIControlStateNormal];
     [self.hidenBtn setTitleColor:[UIColor colorWithHexString:@"ff9500" alpha:1.0] forState:UIControlStateNormal];
-    self.hidenBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    self.hidenBtn.titleLabel.font = [UIFont systemFontOfSize:[self Suit:12]];
     [self.hidenView addSubview:self.hidenBtn];
+    [self.hidenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.hidenView.mas_left).offset([self Suit:5]);
+        make.centerY.equalTo(self.hidenView.mas_centerY);
+        make.height.mas_equalTo([self Suit:35]);
+    }];
     
     self.hidenTimeLabel = [[UILabel alloc] init];
     self.hidenTimeLabel.textColor = [UIColor colorWithHexString:@"666666" alpha:1.0];
-    self.hidenTimeLabel.font = [UIFont systemFontOfSize:12];
+    self.hidenTimeLabel.font = [UIFont systemFontOfSize:[self Suit:12]];
     self.hidenTimeLabel.textAlignment = NSTextAlignmentRight;
     [self.hidenView addSubview:self.hidenTimeLabel];
     [self.hidenTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.hidenBtn.mas_centerY);
-        make.right.equalTo(self.hidenView.mas_right).offset(-10);
-        make.width.mas_equalTo(@70);
+        make.right.equalTo(self.hidenView.mas_right).offset([self Suit:-10]);
+        make.width.mas_equalTo([self Suit:70]);
     }];
     
     //内容标题
@@ -221,15 +228,25 @@
     self.hidenLabel.text = @"";
     self.hidenLabel.textAlignment = NSTextAlignmentLeft;
     self.hidenLabel.textColor = [UIColor colorWithHexString:@"666666" alpha:1.0];
-    self.hidenLabel.font = [UIFont systemFontOfSize:12];
+    self.hidenLabel.font = [UIFont systemFontOfSize:[self Suit:12]];
     [self.hidenView addSubview:self.hidenLabel];
     [self.hidenLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.hidenBtn.mas_centerY);
-        make.left.equalTo(self.hidenBtn.mas_right).offset(5);
-        make.right.equalTo(self.hidenTimeLabel.mas_left).offset(-15);
+        make.left.equalTo(self.hidenBtn.mas_right).offset([self Suit:5]);
+        make.right.equalTo(self.hidenTimeLabel.mas_left).offset([self Suit:-5]);
     }];
     
 }
+
+/**
+ 适配 给定4.7寸屏尺寸，适配4和5.5寸屏尺寸
+ */
+- (float)Suit:(float)MySuit
+{
+    (IS_IPHONE4INCH||IS_IPHONE35INCH)?(MySuit=MySuit/Suit4Inch):((IS_IPHONE55INCH)?(MySuit=MySuit*Suit55Inch):MySuit);
+    return MySuit;
+}
+
 
 
 #pragma mark - 开始／停止定时器

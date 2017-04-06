@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		387D79091E95D7B0001DBE65 /* SDiPhoneVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 387D79081E95D7B0001DBE65 /* SDiPhoneVersion.m */; };
 		38DB34BD1E7A5D180083B816 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB34BC1E7A5D180083B816 /* main.m */; };
 		38DB34C01E7A5D180083B816 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB34BF1E7A5D180083B816 /* AppDelegate.m */; };
 		38DB34C31E7A5D180083B816 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DB34C21E7A5D180083B816 /* ViewController.m */; };
@@ -32,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		387D79071E95D7B0001DBE65 /* SDiPhoneVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDiPhoneVersion.h; sourceTree = "<group>"; };
+		387D79081E95D7B0001DBE65 /* SDiPhoneVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDiPhoneVersion.m; sourceTree = "<group>"; };
+		387D790A1E95DA24001DBE65 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		38DB34B81E7A5D180083B816 /* ADRollDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADRollDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DB34BC1E7A5D180083B816 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		38DB34BE1E7A5D180083B816 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		387D79061E95D7B0001DBE65 /* SDiPhoneVersion */ = {
+			isa = PBXGroup;
+			children = (
+				387D79071E95D7B0001DBE65 /* SDiPhoneVersion.h */,
+				387D79081E95D7B0001DBE65 /* SDiPhoneVersion.m */,
+			);
+			path = SDiPhoneVersion;
+			sourceTree = "<group>";
+		};
 		38DB34AF1E7A5D180083B816 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,7 @@
 		38DB34BA1E7A5D180083B816 /* ADRollDemo */ = {
 			isa = PBXGroup;
 			children = (
+				387D79061E95D7B0001DBE65 /* SDiPhoneVersion */,
 				38DB35021E7A5E210083B816 /* UIColorHelper */,
 				38DB34D91E7A5DFF0083B816 /* Masonry */,
 				38DB35061E7A669F0083B816 /* WebViewController */,
@@ -117,6 +131,7 @@
 				38DB34BF1E7A5D180083B816 /* AppDelegate.m */,
 				38DB34C11E7A5D180083B816 /* ViewController.h */,
 				38DB34C21E7A5D180083B816 /* ViewController.m */,
+				387D790A1E95DA24001DBE65 /* PrefixHeader.pch */,
 				38DB34C41E7A5D180083B816 /* Main.storyboard */,
 				38DB34C71E7A5D180083B816 /* Assets.xcassets */,
 				38DB34C91E7A5D180083B816 /* LaunchScreen.storyboard */,
@@ -282,6 +297,7 @@
 				38DB34D51E7A5D760083B816 /* ADRollView.m in Sources */,
 				38DB35051E7A5E210083B816 /* UIColor+ColorHelper.m in Sources */,
 				38DB34FC1E7A5DFF0083B816 /* MASViewConstraint.m in Sources */,
+				387D79091E95D7B0001DBE65 /* SDiPhoneVersion.m in Sources */,
 				38DB34C31E7A5D180083B816 /* ViewController.m in Sources */,
 				38DB34C01E7A5D180083B816 /* AppDelegate.m in Sources */,
 				38DB34D81E7A5DC20083B816 /* ADRollModel.m in Sources */,
@@ -361,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -402,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -413,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = ADRollDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cesar.ADRollDemo;
@@ -424,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = ADRollDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cesar.ADRollDemo;
@@ -450,6 +468,7 @@
 				38DB34D11E7A5D180083B816 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
